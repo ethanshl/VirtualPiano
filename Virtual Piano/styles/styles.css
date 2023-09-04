@@ -11,18 +11,20 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #E3F2FD;
+  background: #ffffff;
 }
 .wrapper {
   padding: 35px 40px;
-  border-radius: 20px;
-  background: #141414;
+  border-radius: 30px;
+  background: #fff4f4;
+  border: 1px solid #686868;
 }
 .wrapper header {
   display: flex;
   color: #B2B2B2;
   align-items: center;
   justify-content: space-between;
+ 
 }
 header h2 {
   font-size: 1.6rem;
@@ -70,7 +72,8 @@ header input {
 .piano-keys {
   display: flex;
   list-style: none;
-  margin-top: 40px;
+  margin: 50px 0 20px 0;
+  
 }
 .piano-keys .key {
   cursor: pointer;
@@ -81,7 +84,7 @@ header input {
 .piano-keys .black {
   z-index: 2;
   width: 44px;
-  height: 140px;
+  height: 315px;
   margin: 0 -22px 0 -22px;
   border-radius: 0 0 5px 5px;
   background: linear-gradient(#333, #000);
@@ -91,11 +94,11 @@ header input {
   background:linear-gradient(to bottom, #000, #434343);
 }
 .piano-keys .white {
-  height: 230px;
+  height: 500px;
   width: 70px;
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
   border: 1px solid #000;
-  background: linear-gradient(#fff 96%, #eee 4%);
+  background: linear-gradient(#fff 95%, #eee 95%);
 }
 .piano-keys .white.active {
   box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
@@ -103,17 +106,20 @@ header input {
 }
 .piano-keys .key span {
   position: absolute;
-  bottom: 20px;
+  bottom: 35px;
   width: 100%;
   color: #A2A2A2;
   font-size: 1.13rem;
   text-align: center;
 }
+span {
+  display: block;
+}
 .piano-keys .key.hide span {
   display: none;
 }
 .piano-keys .black span {
-  bottom: 13px;
+  bottom: 15px;
   color: #888888;
 }
 @media screen and (max-width: 815px) {
