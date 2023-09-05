@@ -17,9 +17,9 @@ const pianoKeys = document.querySelectorAll(".piano-keys .key"),
 volumeSlider = document.querySelector(".volume-slider input"),
 keysCheckbox = document.querySelector(".keys-checkbox input");
 let allKeys = [],
-audio = new Audio(`tunes/a.wav`); // by default, audio src is "a" tune
+audio = new Audio(`tunes/C4.mp3`); // by default, audio src is "a" tune
 const playTune = (key) => {
-    audio.src = `tunes/${key}.wav`; // passing audio src based on key pressed 
+    audio.src = `tunes/${key}.mp3`; // passing audio src based on key pressed 
     audio.play(); // playing audio
     const clickedKey = document.querySelector(`[data-key="${key}"]`); // getting clicked key element
     clickedKey.classList.add("active"); // adding active class to the clicked key element
