@@ -1,7 +1,6 @@
 const shortPiano = document.getElementById('shortPiano');
 const longPiano = document.getElementById('longPiano');
 const pianoCheckbox = document.getElementById('piano-checkbox');
-
 pianoCheckbox.addEventListener('change', function() {
     if (this.checked) {
         shortPiano.style.display = 'none';
@@ -12,20 +11,21 @@ pianoCheckbox.addEventListener('change', function() {
     }
 });
 
-
 const pianoKeys = document.querySelectorAll(".piano-keys .key"),
 volumeSlider = document.querySelector(".volume-slider input"),
 keysCheckbox = document.querySelector(".keys-checkbox input");
 let allKeys = [],
-audio = new Audio(`tunes/C4.mp3`); // by default, audio src is "a" tune
+audio = new Audio(`tunes/C4.mp3`); // by default, audio src is C4 tune
 const playTune = (key) => {
     audio.src = `tunes/${key}.mp3`; // passing audio src based on key pressed 
     audio.play(); // playing audio
-    const clickedKey = document.querySelector(`[data-key="${key}"]`); // getting clicked key element
-    clickedKey.classList.add("active"); // adding active class to the clicked key element
-    setTimeout(() => { // removing active class after 150 ms from the clicked key element
-        clickedKey.classList.remove("active");
-    }, 150);
+    const clickedKeys = document.querySelectorAll(`[data-key="${key}"]`); // getting all matching key elements
+    clickedKeys.forEach(clickedKey => {
+        clickedKey.classList.add("active"); // adding active class to the clicked key element
+        setTimeout(() => { // removing active class after 150 ms from the clicked key element
+            clickedKey.classList.remove("active");
+        }, 150);
+    });
 }
 pianoKeys.forEach(key => {
     allKeys.push(key.dataset.key); // adding data-key value to the allKeys array
@@ -42,7 +42,7 @@ const showHideKeys = () => {
 const pressedKey = (e) => {
     // if the pressed key is in the allKeys array, only call the playTune function
     if(allKeys.includes(e.key)) playTune(e.key);
-}
+} 
 keysCheckbox.addEventListener("click", showHideKeys);
 volumeSlider.addEventListener("input", handleVolume);
 document.addEventListener("keydown", pressedKey);

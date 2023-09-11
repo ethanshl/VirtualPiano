@@ -6,46 +6,52 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   background: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .wrapper {
   padding: 35px 40px;
   border-radius: 30px;
   background: #fff4f4;
   border: 1px solid #686868;
+  max-width: 80%;
 }
-.wrapper header {
+
+.wrapper .utilities {
   display: flex;
-  color: #B2B2B2;
   align-items: center;
-  justify-content: space-between;
- 
+  justify-content: space-between; 
 }
-header h2 {
-  font-size: 1.6rem;
-}
-header .column {
+
+.utilities  .column {
   display: flex;
   align-items: center;
 }
-header span {
+
+.utilities  span {
   font-weight: 500;
   margin-right: 15px;
   font-size: 1.19rem;
 }
-header input {
+
+.utilities  input {
   outline: none;
   border-radius: 30px;
 }
+
 .volume-slider input {
   accent-color: #fff;
 }
-.keys-checkbox input {
+
+.noteName-checkbox input {
   height: 30px;
   width: 60px;
   cursor: pointer;
@@ -53,7 +59,8 @@ header input {
   position: relative;
   background: #4B4B4B
 }
-.keys-checkbox input::before {
+
+.noteName-checkbox input::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -65,46 +72,80 @@ header input {
   transform: translateY(-50%);
   transition: all 0.3s ease;
 }
-.keys-checkbox input:checked::before {
+
+.noteName-checkbox input:checked::before {
   left: 35px;
   background: #fff;
 }
+
+.piano-checkbox input {
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  background: #4B4B4B
+}
+
+.piano-checkbox input::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #8c8c8c;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.piano-checkbox input:checked::before {
+  left: 35px;
+  background: #fff;
+}
+
 .piano-keys {
   display: flex;
   list-style: none;
-  margin: 50px 0 20px 0;
-  
+  margin: 15px 0 20px 0;
 }
+
 .piano-keys .key {
   cursor: pointer;
   user-select: none;
   position: relative;
   text-transform: uppercase;
 }
-.piano-keys .black {
+
+#shortPiano  .piano-keys .black {
   z-index: 2;
   width: 44px;
   height: 315px;
   margin: 0 -22px 0 -22px;
   border-radius: 0 0 5px 5px;
-  background: linear-gradient(#333, #000);
+  background: linear-gradient(#303030 88%, #242424 90%);
 }
+
 .piano-keys .black.active {
-  box-shadow: inset -5px -10px 10px rgba(255,255,255,0.1);
-  background:linear-gradient(to bottom, #000, #434343);
+  box-shadow: inset -5px 5px 10px rgba(0, 0, 0, 2);
+  background:linear-gradient(to bottom, #303030 88%, #000000 90%);
 }
-.piano-keys .white {
+
+#shortPiano .piano-keys .white {
   height: 500px;
   width: 70px;
   border-radius: 0 0 8px 8px;
   border: 1px solid #000;
   background: linear-gradient(#fff 95%, #eee 95%);
 }
+
 .piano-keys .white.active {
   box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
   background:linear-gradient(to bottom, #fff 0%, #eee 100%);
 }
-.piano-keys .key span {
+
+#shortPiano .piano-keys .key span {
   position: absolute;
   bottom: 35px;
   width: 100%;
@@ -112,54 +153,296 @@ header input {
   font-size: 1.13rem;
   text-align: center;
 }
-span {
-  display: block;
-}
+
 .piano-keys .key.hide span {
   display: none;
 }
+
 .piano-keys .black span {
   bottom: 15px;
   color: #888888;
 }
-@media screen and (max-width: 815px) {
-  .wrapper {
-    padding: 25px;
+
+#longPiano .piano-keys .black {
+  z-index: 2;
+  width: 24px;
+  height: 171px;
+  margin: 0 -12px 0 -12px;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(#303030 88%, #242424 90%);
+}
+
+#longPiano .piano-keys .white {
+  height: 271px;
+  width: 38px;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid #000;
+  background: linear-gradient(#fff 95%, #eee 95%);
+
+}
+
+#longPiano .piano-keys .key span {
+  position: absolute;
+  bottom: 35px;
+  width: 100%;
+  color: #A2A2A2;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+
+/*Responsive Design*/
+@media (min-width: 1516px) and (max-width: 1600px) {
+  #shortPiano  .piano-keys .black {
+    margin: 0 -17px 0 -17px;
   }
-  header {
-    flex-direction: column;
+  #longPiano .piano-keys .black {
+    margin: 0 -11px 0 -11px;
   }
-  header :where(h2, .column) {
-    margin-bottom: 13px;
+  #longPiano .piano-keys .key span {
+    font-size: 0.65rem;
+  }
+}
+
+@media (min-width: 1401px) and (max-width: 1515px) {
+  #shortPiano  .piano-keys .black {
+    margin: 0 -17px 0 -17px;
+  }
+  #longPiano .piano-keys .black {
+    margin: 0 -10px 0 -10px;
+  }
+  #longPiano .piano-keys .key span {
+    font-size: 0.55rem;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1400px) {
+  #shortPiano  .piano-keys .black {
+    margin: 0 -15px 0 -16px;
+  }
+  #longPiano .piano-keys .black {
+    margin: 0 -9px 0 -9px;
+  }
+  #shortPiano .piano-keys .key span {
+    font-size: 0.98rem;
+  }
+  #longPiano .piano-keys .key span {
+    font-size: 0.55rem;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1299px) {
+  #shortPiano  .piano-keys .black {
+    margin: 0 -14px 0 -15px;
+  }
+  #longPiano .piano-keys .black {
+    margin: 0 -10px 0 -10px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.9rem;
+  }
+  #longPiano .piano-keys .key span {
+    font-size: 0.54rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+  #shortPiano .piano-keys li:nth-child(30),
+  #shortPiano .piano-keys li:nth-child(31),
+  #shortPiano .piano-keys li:nth-child(32),
+  #shortPiano .piano-keys li:nth-child(33),
+  #shortPiano .piano-keys li:nth-child(34),
+  #shortPiano .piano-keys li:nth-child(35),
+  #shortPiano .piano-keys li:nth-child(36) {
+    display: none;
+  }
+  #longPiano .piano-keys li:nth-child(54),
+  #longPiano .piano-keys li:nth-child(55),
+  #longPiano .piano-keys li:nth-child(56),
+  #longPiano .piano-keys li:nth-child(57),
+  #longPiano .piano-keys li:nth-child(58),
+  #longPiano .piano-keys li:nth-child(59),
+  #longPiano .piano-keys li:nth-child(60),
+  #longPiano .piano-keys li:nth-child(61),
+  #longPiano .piano-keys li:nth-child(62),
+  #longPiano .piano-keys li:nth-child(63),
+  #longPiano .piano-keys li:nth-child(64),
+  #longPiano .piano-keys li:nth-child(65) {
+    display: none;
+  }
+}
+
+@media (min-width: 1075px) and (max-width: 1200px) {
+  #shortPiano  .piano-keys .black {
+    margin: 0 -16px 0 -17px;
+  } 
+  #longPiano .piano-keys .black {
+    margin: 0 -9px 0 -9px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.9rem;
+ }
+  #longPiano .piano-keys .key span {
+    font-size: 0.54rem;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1075px) {
+  .utilities span {
+    font-size: 1rem;
+  }
+  #shortPiano  .piano-keys .black {
+    width: 26.5px;
+    height: 189px;
+    margin: 0 -13px 0 -14px;
+  }
+  #shortPiano .piano-keys .key span {
+    font-size: 0.77rem;
+  }
+  #shortPiano .piano-keys .white {
+    height: 300px;
+    width: 42px;
+  }
+  #longPiano .piano-keys .key span {
+    font-size: 0.5rem;
+  }   
+}
+
+@media (max-width: 899px) {  
+  .piano-checkbox {
+    display: none !important;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 899px) {
+  #shortPiano  .piano-keys .black {
+    width: 26.5px;
+    height: 189px;
+    margin: 0 -11px 0 -13px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.6rem;
+ }
+  #shortPiano .piano-keys .white {
+    height: 300px;
+    width: 42px;
+  }     
+}
+
+@media (max-width: 749px) {  
+  .utilities  span {
+    margin-right: 10px;
+    font-size: 0.8rem;
+  }
+  .noteName-checkbox input {
+    height: 20px;
+    width: 40px;
+  }
+  .noteName-checkbox input::before {
+    width: 16px;
+    height: 16px;
+    left: 2px;
+  }
+  .noteName-checkbox input:checked::before {
+    left: 21px;
   }
   .volume-slider input {
-    max-width: 100px;
+    width: 100px;
   }
-  .piano-keys {
-    margin-top: 20px;
+  .wrapper{
+    padding: 30px 15px 30px 15px;
+  } 
+}
+
+@media (min-width: 620px) and (max-width: 749px) {    
+  #shortPiano  .piano-keys .black {
+    width: 21px;
+    height: 151px;
+    margin: 0 -10px 0 -11px;
   }
-  .piano-keys .key:where(:nth-child(9), :nth-child(10)) {
-    display: none;
+  #shortPiano .piano-keys .key span {
+   font-size: 0.4rem;
   }
-  .piano-keys .black {
-    height: 100px;
-    width: 40px;
-    margin: 0 -20px 0 -20px;
+  #shortPiano .piano-keys .white {
+    height: 240px;
+    width: 33.5px;
+  }       
+}
+
+@media (max-width: 619px) { 
+  .utilities  span {
+    margin-right: 5px;
+    font-size: 0.6rem;
   }
-  .piano-keys .white {
-    height: 180px;
+  .volume-slider input {
     width: 60px;
   }
-}
-@media screen and (max-width: 615px) {
-  .piano-keys .key:nth-child(13),
-  .piano-keys .key:nth-child(14),
-  .piano-keys .key:nth-child(15),
-  .piano-keys .key:nth-child(16),
-  .piano-keys .key :nth-child(17) {
-    display: none;
+  .noteName-checkbox input {
+    height: 16px;
+    width: 30px;
   }
-  .piano-keys .white {
-    width: 50px;
+  .noteName-checkbox input::before {
+    width: 12px;
+    height: 12px;
+    left: 2px;
+    top: 51%;
+  }
+  .noteName-checkbox input:checked::before {
+    left: 16px;
+  }
+  .wrapper {
+    padding:20px 7px 10px 7px;
+
   }
 }
+
+@media (min-width: 501px) and (max-width: 619px) {      
+  #shortPiano  .piano-keys .black {
+    width: 21px;
+    height: 151px;
+    margin: 0 -8px 0 -9px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.4rem;
+  }
+  #shortPiano .piano-keys .white {
+    height: 240px;
+    width: 33.5px;
+  }
+
+}
+
+@media (min-width: 430px) and (max-width: 500px) {          
+  #shortPiano  .piano-keys .black {
+    width: 18px;
+    height: 128px;
+    margin: 0 -7px 0 -7px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.4rem;
+  }
+  #shortPiano .piano-keys .white {
+    height: 204px;
+    width: 28.5px;
+  } 
+}
+@media (max-width: 430px) {          
+  #shortPiano  .piano-keys .black {
+    width: 18px;
+    height: 128px;
+    margin: 0 -6px 0 -6px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.35rem;
+  }
+  #shortPiano .piano-keys .white {
+    height: 204px;
+    width: 28.5px;
+  } 
+}
+  
+
+  
+
+
+

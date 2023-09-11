@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Playable Piano JavaScript | CodingNepal</title>
+    <title>The Donovan's Piano | Virtual Piano</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="JavaScript/script.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
-      <header>
-
+      <div class="utilities">       
         <div class="column volume-slider">
           <span>Volume</span><input type="range" min="0" max="1" value="0.5" step="any">
         </div>
-        <div class="column keys-checkbox">
+        <div class="column keys-checkbox noteName-checkbox">
           <span>Show Note Names</span><input type="checkbox" checked>
         </div>
-        <div  class="column keys-checkbox" >
-            <span>Short Piano</span><input id="piano-checkbox" type="checkbox"><span>Long Piano</span>
+        <div class="column keys-checkbox piano-checkbox" >
+           <span>Long Piano</span><input id="piano-checkbox" type="checkbox">
           </div>
-      </header>
+      </div>
+
       <div id="shortPiano">
         <ul class="piano-keys">
             <li class="key white" data-key="C3"><span>C3</span></li>
@@ -65,42 +67,74 @@
 
     <div id="longPiano" style="display: none;">
         <ul class="piano-keys">
-            <li class="key white" data-key="a"><span>a</span></li>
-            <li class="key black" data-key="w"><span>w</span></li>
-            <li class="key white" data-key="s"><span>s</span></li>
-            <li class="key black" data-key="e"><span>e</span></li>
-            <li class="key white" data-key="d"><span>d</span></li>
-            <li class="key white" data-key="f"><span>f</span></li>
-            <li class="key black" data-key="t"><span>t</span></li>
-            <li class="key white" data-key="g"><span>g</span></li>
-            <li class="key black" data-key="y"><span>y</span></li>
-            <li class="key white" data-key="h"><span>h</span></li>
-            <li class="key black" data-key="u"><span>u</span></li>
-            <li class="key white" data-key="j"><span>j</span></li>
-            <li class="key white" data-key="k"><span>k</span></li>
-            <li class="key black" data-key="o"><span>o</span></li>
-            <li class="key white" data-key="l"><span>l</span></li>
-            <li class="key black" data-key="p"><span>p</span></li>
-            <li class="key white" data-key=";"><span>;</span></li>
-            <li class="key white" data-key="a"><span>a</span></li>
-            <li class="key black" data-key="w"><span>w</span></li>
-            <li class="key white" data-key="s"><span>s</span></li>
-            <li class="key black" data-key="e"><span>e</span></li>
-            <li class="key white" data-key="d"><span>d</span></li>
-            <li class="key white" data-key="f"><span>f</span></li>
-            <li class="key black" data-key="t"><span>t</span></li>
-            <li class="key white" data-key="g"><span>g</span></li>
-            <li class="key black" data-key="y"><span>y</span></li>
-            <li class="key white" data-key="h"><span>h</span></li>
-            <li class="key black" data-key="u"><span>u</span></li>
-            <li class="key white" data-key="j"><span>j</span></li>
-            <li class="key white" data-key="k"><span>k</span></li>
-            <li class="key black" data-key="o"><span>o</span></li>
-            <li class="key white" data-key="l"><span>l</span></li>
-            <li class="key black" data-key="p"><span>p</span></li>
-            <li class="key white" data-key=";"><span>;</span></li>
+          <li class="key white" data-key="C2"><span>C2</span></li>
+          <li class="key black" data-key="Db2"><span>C♯2<br />D♭2</span></li>
+          <li class="key white" data-key="D2"><span>D2</span></li>
+          <li class="key black" data-key="Eb2"><span>D♯2<br />E♭2</span></li>
+          <li class="key white" data-key="E2"><span>E2</span></li>
+          <li class="key white" data-key="F2"><span>F2</span></li>
+          <li class="key black" data-key="Gb2"><span>F♯2<br />G♭2</span></li>
+          <li class="key white" data-key="G2"><span>G2</span></li>
+          <li class="key black" data-key="Ab2"><span>G♯2<br />A♭2</span></li>
+          <li class="key white" data-key="A2"><span>A2</span></li>
+          <li class="key black" data-key="Bb2"><span>A♯2<br />B♭2</span></li>
+          <li class="key white" data-key="B2"><span>B2</span></li>
+          <li class="key white" data-key="C3"><span>C3</span></li>
+          <li class="key black" data-key="Db3"><span>C♯3<br />D♭3</span></li>
+          <li class="key white" data-key="D3"><span>D3</span></li>
+          <li class="key black" data-key="Eb3"><span>D♯3<br />E♭3</span></li>
+          <li class="key white" data-key="E3"><span>E3</span></li>
+          <li class="key white" data-key="F3"><span>F3</span></li>
+          <li class="key black" data-key="Gb3"><span>F♯3<br />G♭3</span></li>
+          <li class="key white" data-key="G3"><span>G3</span></li>
+          <li class="key black" data-key="Ab3"><span>G♯3<br />A♭3</span></li>
+          <li class="key white" data-key="A3"><span>A3</span></li>
+          <li class="key black" data-key="Bb3"><span>A♯3<br />B♭3</span></li>
+          <li class="key white" data-key="B3"><span>B3</span></li>
+          <li class="key white" data-key="C4"><span>C4</span></li>
+          <li class="key black" data-key="Db4"><span>C♯4<br />D♭4</span></li>
+          <li class="key white" data-key="D4"><span>D4</span></li>
+          <li class="key black" data-key="Eb4"><span>D♯4<br />E♭4</span></li>
+          <li class="key white" data-key="E4"><span>E4</span></li>
+          <li class="key white" data-key="F4"><span>F4</span></li>
+          <li class="key black" data-key="Gb4"><span>F♯4<br />G♭4</span></li>
+          <li class="key white" data-key="G4"><span>G4</span></li>
+          <li class="key black" data-key="Ab4"><span>G♯4<br />A♭4</span></li>
+          <li class="key white" data-key="A4"><span>A4</span></li>
+          <li class="key black" data-key="Bb4"><span>A♯4<br />B♭4</span></li>
+          <li class="key white" data-key="B4"><span>B4</span></li>
+          <li class="key white" data-key="C5"><span>C5</span></li>
+          <li class="key black" data-key="Db5"><span>C♯5<br />D♭5</span></li>
+          <li class="key white" data-key="D5"><span>D5</span></li>
+          <li class="key black" data-key="Eb5"><span>D♯5<br />E♭5</span></li>
+          <li class="key white" data-key="E5"><span>E5</span></li>
+          <li class="key white" data-key="F5"><span>F5</span></li>
+          <li class="key black" data-key="Gb5"><span>F♯5<br />G♭5</span></li>
+          <li class="key white" data-key="G5"><span>G5</span></li>
+          <li class="key black" data-key="Ab5"><span>G♯5<br />A♭5</span></li>
+          <li class="key white" data-key="A5"><span>A5</span></li>
+          <li class="key black" data-key="Bb5"><span>A♯5<br />B♭5</span></li>
+          <li class="key white" data-key="B5"><span>B5</span></li>
+          <li class="key white" data-key="C6"><span>C6</span></li>
+          <li class="key black" data-key="Db6"><span>C♯6<br />D♭6</span></li>
+          <li class="key white" data-key="D6"><span>D6</span></li>
+          <li class="key black" data-key="Eb6"><span>D♯6<br />E♭6</span></li>
+          <li class="key white" data-key="E6"><span>E6</span></li>
+          <li class="key white" data-key="F6"><span>F6</span></li>
+          <li class="key black" data-key="Gb6"><span>F♯6<br />G♭6</span></li>
+          <li class="key white" data-key="G6"><span>G6</span></li>
+          <li class="key black" data-key="Ab6"><span>G♯6<br />A♭6</span></li>
+          <li class="key white" data-key="A6"><span>A6</span></li>
+          <li class="key black" data-key="Bb6"><span>A♯6<br />B♭6</span></li>
+          <li class="key white" data-key="B6"><span>B6</span></li>
+          <li class="key white" data-key="C7"><span>C7</span></li>
+          <li class="key black" data-key="Db7"><span>C♯7<br />D♭7</span></li>
+          <li class="key white" data-key="D7"><span>D7</span></li>
+          <li class="key black" data-key="Eb7"><span>D♯7<br />E♭7</span></li>
+          <li class="key white" data-key="E7"><span>E7</span></li>
+          
           </ul>
-    </div>
+        </div>
     </div>
   </body>
 </html>
