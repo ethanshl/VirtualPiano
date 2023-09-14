@@ -1,10 +1,10 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-* {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 body {
@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #ffffff;
+  background: #ffffff00;
   margin-left: auto;
   margin-right: auto;
 }
@@ -175,7 +175,7 @@ body {
 #longPiano .piano-keys .white {
   height: 271px;
   width: 38px;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 6px 6px;
   border: 1px solid #000;
   background: linear-gradient(#fff 95%, #eee 95%);
 
@@ -247,6 +247,11 @@ body {
 }
 
 @media (min-width: 320px) and (max-width: 1200px) {
+  .wrapper {
+    padding: 35px 25px;
+    border-radius: 20px;
+  }
+
   #shortPiano .piano-keys li:nth-child(30),
   #shortPiano .piano-keys li:nth-child(31),
   #shortPiano .piano-keys li:nth-child(32),
@@ -277,7 +282,7 @@ body {
     margin: 0 -16px 0 -17px;
   } 
   #longPiano .piano-keys .black {
-    margin: 0 -9px 0 -9px;
+    margin: 0 -9px 0 -10px;
   }
   #shortPiano .piano-keys .key span {
    font-size: 0.9rem;
@@ -305,13 +310,27 @@ body {
   }
   #longPiano .piano-keys .key span {
     font-size: 0.5rem;
+  }
+  #longPiano .piano-keys .black {
+    margin: 0 -8px 0 -9px;
   }   
 }
 
 @media (max-width: 899px) {  
+  .utilities span {
+    font-size: 0.99rem;
+  }
   .piano-checkbox {
     display: none !important;
   }
+  .wrapper {
+    padding: 35px 20px;
+    border-radius: 20px;
+  }
+  #shortPiano .piano-keys .white {
+    border-radius: 0 0 7px 7px;
+  }
+
 }
 
 @media (min-width: 750px) and (max-width: 899px) {
@@ -372,23 +391,25 @@ body {
 @media (max-width: 619px) { 
   .utilities  span {
     margin-right: 5px;
-    font-size: 0.6rem;
+    font-size: 0.65rem;
   }
   .volume-slider input {
     width: 60px;
+    height: 5px;
   }
+
   .noteName-checkbox input {
-    height: 16px;
+    height: 12px;
     width: 30px;
   }
   .noteName-checkbox input::before {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     left: 2px;
-    top: 51%;
+    top: 50%;
   }
   .noteName-checkbox input:checked::before {
-    left: 16px;
+    left: 18px;
   }
   .wrapper {
     padding:20px 7px 10px 7px;
@@ -396,11 +417,11 @@ body {
   }
 }
 
-@media (min-width: 501px) and (max-width: 619px) {      
+@media (min-width: 525px) and (max-width: 619px) {      
   #shortPiano  .piano-keys .black {
     width: 21px;
     height: 151px;
-    margin: 0 -8px 0 -9px;
+    margin: 0 -9px 0 -9px;
   }
   #shortPiano .piano-keys .key span {
    font-size: 0.4rem;
@@ -408,15 +429,27 @@ body {
   #shortPiano .piano-keys .white {
     height: 240px;
     width: 33.5px;
+    border-radius: 0 0 5px 5px;
+  }
+  #shortPiano  .piano-keys .black {
+    border-radius: 0 0 5px 5px;
   }
 
 }
 
-@media (min-width: 430px) and (max-width: 500px) {          
+@media (max-width: 524px) {
+  .utilities  span {
+    margin-right: 7px;
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 485px) and (max-width: 524px) {          
   #shortPiano  .piano-keys .black {
     width: 18px;
     height: 128px;
-    margin: 0 -7px 0 -7px;
+    margin: 0 -7px 0 -8px;
+    border-radius: 0 0 3px 3px;
   }
   #shortPiano .piano-keys .key span {
    font-size: 0.4rem;
@@ -424,13 +457,15 @@ body {
   #shortPiano .piano-keys .white {
     height: 204px;
     width: 28.5px;
+    border-radius: 0 0 5px 5px;
   } 
 }
-@media (max-width: 430px) {          
+@media (min-width: 450px) and (max-width: 484px) {          
   #shortPiano  .piano-keys .black {
     width: 18px;
     height: 128px;
-    margin: 0 -6px 0 -6px;
+    margin: 0 -7px 0 -7px;
+    border-radius: 0 0 3px 3px;
   }
   #shortPiano .piano-keys .key span {
    font-size: 0.35rem;
@@ -438,9 +473,49 @@ body {
   #shortPiano .piano-keys .white {
     height: 204px;
     width: 28.5px;
+    border-radius: 0 0 3px 3px;
   } 
 }
-  
+
+@media (min-width: 400px) and (max-width: 450px) {          
+  #shortPiano  .piano-keys .black {
+    width: 18px;
+    height: 128px;
+    margin: 0 -6px 0 -7px;
+    border-radius: 0 0 3px 3px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.35rem;
+  }
+  #shortPiano .piano-keys .white {
+    height: 204px;
+    width: 28.5px;
+    border-radius: 0 0 3px 3px;
+  } 
+  .wrapper {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {          
+  #shortPiano  .piano-keys .black {
+    width: 18px;
+    height: 128px;
+    margin: 0 -6px 0 -6px;
+    border-radius: 0 0 3px 3px;
+  }
+  #shortPiano .piano-keys .key span {
+   font-size: 0.35rem;
+  }
+  #shortPiano .piano-keys .white {
+    height: 204px;
+    width: 28.5px;
+    border-radius: 0 0 3px 3px;
+  } 
+  .wrapper {
+    border-radius: 10px;
+  }
+}
 
   
 
